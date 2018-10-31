@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\OpenCvSharp3-AnyCPU.3.3.1.20171117\build\OpenCvSharp3-AnyCPU.props" Condition="Exists('..\packages\OpenCvSharp3-AnyCPU.3.3.1.20171117\build\OpenCvSharp3-AnyCPU.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16625831-CD65-4C11-B2B3-1C0F017FAE61}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IdentityTrainer</RootNamespace>
+    <AssemblyName>IdentityTrainer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyHttp, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyHttp.1.7.0\lib\net40\EasyHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="Fluent, Version=6.1.0.233, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fluent.Ribbon.6.1.0.233\lib\net45\Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx, Version=2.0.1209.2802, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+      <HintPath>..\packages\JsonFx.2.0.1209.2802\lib\net40\JsonFx.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ProjectOxford.Common, Version=2.0.25.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ProjectOxford.Common.2.0.25\lib\netstandard1.1\Microsoft.ProjectOxford.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ProjectOxford.Face, Version=1.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ProjectOxford.Face.1.4.0\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Microsoft.ProjectOxford.Face.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.10.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.6\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.3.1.20171117\lib\net46\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Blob, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.3.1.20171117\lib\net46\OpenCvSharp.Blob.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.3.1.20171117\lib\net46\OpenCvSharp.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.UserInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.3.1.20171117\lib\net46\OpenCvSharp.UserInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.2.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.5.0.2\lib\net45\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.5.0.2\lib\net45\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.5.0.2\lib\net45\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.MySql, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.MySql.5.0.2\lib\net45\ServiceStack.OrmLite.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.5.0.2\lib\net45\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="Slugify, Version=0.1.0.20570, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Slugify.0.1.0.20570\lib\net40\Slugify.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="GroupIdentityObject.cs" />
+    <Compile Include="GroupModel.cs" />
+    <Compile Include="LocalDbGroupsWindow.xaml.cs">
+      <DependentUpon>LocalDbGroupsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalDbPersonsWindow.xaml.cs">
+      <DependentUpon>LocalDbPersonsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonIdentityObject.cs" />
+    <Compile Include="PersonModel.cs" />
+    <Compile Include="ServiceQueryWindow.xaml.cs">
+      <DependentUpon>ServiceQueryWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="LocalDbGroupsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LocalDbPersonsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CameraState.cs" />
+    <Compile Include="FaceIdentityObject.cs" />
+    <Compile Include="GFaceOpenCV.cs" />
+    <Compile Include="GFaceOpenCVFaceObject.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ServiceQueryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlTransaction.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlParameterCollection.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlParameter.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlHelper.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlException.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlDataReader.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlDataAdapter.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlConnectionStringBuilder.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlConnection.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlCommandBuilder.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="docs\MySqlCommand.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\009-plugs.png" />
+    <Resource Include="assets\icons\3d.png" />
+    <Resource Include="assets\icons\480-pixels.png" />
+    <Resource Include="assets\icons\4k.png" />
+    <Resource Include="assets\icons\5k.png" />
+    <Resource Include="assets\icons\auto.png" />
+    <Resource Include="assets\icons\automatic-flash.png" />
+    <Resource Include="assets\icons\award.png" />
+    <Resource Include="assets\icons\battery.png" />
+    <Resource Include="assets\icons\chair.png" />
+    <Resource Include="assets\icons\clapperboard.png" />
+    <Resource Include="assets\icons\cloud-computing-1.png" />
+    <Resource Include="assets\icons\color-palette.png" />
+    <Resource Include="assets\icons\color.png" />
+    <Resource Include="assets\icons\crop.png" />
+    <Resource Include="assets\icons\curtain.png" />
+    <Resource Include="assets\icons\degree-1.png" />
+    <Resource Include="assets\icons\degree.png" />
+    <Resource Include="assets\icons\dial-1.png" />
+    <Resource Include="assets\icons\dial.png" />
+    <Resource Include="assets\icons\film-1.png" />
+    <Resource Include="assets\icons\film-reel.png" />
+    <Resource Include="assets\icons\film.png" />
+    <Resource Include="assets\icons\flash-1.png" />
+    <Resource Include="assets\icons\flash.png" />
+    <Resource Include="assets\icons\focus-1.png" />
+    <Resource Include="assets\icons\focus.png" />
+    <Resource Include="assets\icons\grid.png" />
+    <Resource Include="assets\icons\hd.png" />
+    <Resource Include="assets\icons\image.png" />
+    <Resource Include="assets\icons\imax.png" />
+    <Resource Include="assets\icons\iso.png" />
+    <Resource Include="assets\icons\layer.png" />
+    <Resource Include="assets\icons\macro.png" />
+    <Resource Include="assets\icons\magic-wand.png" />
+    <Resource Include="assets\icons\mode.png" />
+    <Resource Include="assets\icons\moving.png" />
+    <Resource Include="assets\icons\negative.png" />
+    <Resource Include="assets\icons\night.png" />
+    <Resource Include="assets\icons\photo-camera.png" />
+    <Resource Include="assets\icons\presentation.png" />
+    <Resource Include="assets\icons\projector.png" />
+    <Resource Include="assets\icons\rec-1.png" />
+    <Resource Include="assets\icons\rec.png" />
+    <Resource Include="assets\icons\rotate-camera-1.png" />
+    <Resource Include="assets\icons\rotate-camera.png" />
+    <Resource Include="assets\icons\scale-1.png" />
+    <Resource Include="assets\icons\scale.png" />
+    <Resource Include="assets\icons\sd-card-1.png" />
+    <Resource Include="assets\icons\sd-card.png" />
+    <Resource Include="assets\icons\shutter-1.png" />
+    <Resource Include="assets\icons\shutter.png" />
+    <Resource Include="assets\icons\signal.png" />
+    <Resource Include="assets\icons\sixty-degrees.png" />
+    <Resource Include="assets\icons\stars.png" />
+    <Resource Include="assets\icons\sunny.png" />
+    <Resource Include="assets\icons\television.png" />
+    <Resource Include="assets\icons\three-quarter-degree.png" />
+    <Resource Include="assets\icons\trash.png" />
+    <Resource Include="assets\icons\twenty-five.png" />
+    <Resource Include="assets\icons\users-1.png" />
+    <Resource Include="assets\icons\video-tape.png" />
+    <Resource Include="assets\icons\video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\box.png" />
+    <Resource Include="assets\icons\calendar.png" />
+    <Resource Include="assets\icons\cloud.png" />
+    <Resource Include="assets\icons\edit.png" />
+    <Resource Include="assets\icons\file-1.png" />
+    <Resource Include="assets\icons\flag.png" />
+    <Resource Include="assets\icons\folder.png" />
+    <Resource Include="assets\icons\home.png" />
+    <Resource Include="assets\icons\hourglass.png" />
+    <Resource Include="assets\icons\layers.png" />
+    <Resource Include="assets\icons\link.png" />
+    <Resource Include="assets\icons\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\profile.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\OpenCvSharp3-AnyCPU.3.3.1.20171117\build\OpenCvSharp3-AnyCPU.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp3-AnyCPU.3.3.1.20171117\build\OpenCvSharp3-AnyCPU.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+</Project>
